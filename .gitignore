@@ -1,1 +1,30 @@
-Nothing needs to be added to .gitignore since the changes only include source files (.py) and a markdown file (.md), which are not build artifacts, dependencies, or temporary files.
+```
+# Build artifacts
+android_app/app/build/
+android_app/build/
+build/
+
+# Python compiled files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Dependencies
+venv/
+.venv/
+.env
+.env.local
+
+# Logs and temp files
+*.log
+*.tmp
+
+# Editors
+.vscode/
+.idea/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+```

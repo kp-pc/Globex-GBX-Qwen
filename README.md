@@ -42,14 +42,58 @@ pip install flask ecdsa
 python dashboard.py
 
 # 3. Open your browser
-# Go to: http://localhost:5000
+# Go to: http://localhost:5001
 ```
 
 That's it! You'll see a colorful dashboard where you can:
 - ✨ Create a wallet with one click
 - ⛏️ Mine blocks and earn GBX
-- 💸 Send transactions to friends
-- 📊 View the blockchain in real-time
+- 💸 Send transactions
+- 📊 View blockchain stats
+
+### Option 2: Windows Desktop App (.exe)
+
+Want a native Windows application?
+
+```bash
+# 1. Install build tools
+pip install pyinstaller flask ecdsa
+
+# 2. Build the executable
+python build_windows.py
+
+# 3. Run the app
+# Double-click: dist/GlobexWallet.exe
+```
+
+A standalone Windows app will be created that launches the dashboard automatically!
+
+### Option 3: Android Mobile App
+
+Take Globex on the go with our Android app:
+
+```bash
+# 1. Open android_app/ folder in Android Studio
+# 2. Sync Gradle dependencies
+# 3. Build APK: ./gradlew assembleDebug
+# 4. Install on your device
+```
+
+See [APPS_README.md](APPS_README.md) for detailed instructions.
+
+### Option 4: Command Line Interface
+
+For advanced users who prefer the terminal:
+
+```bash
+# Install dependencies
+pip install ecdsa
+
+# Run CLI commands
+python cli.py --help
+python cli.py info
+python cli.py mine
+```
 
 ### Option 2: Command Line Interface
 
@@ -73,6 +117,42 @@ python cli.py send --from wallet.json --to FRIEND_ADDRESS --amount 10
 ```
 
 ---
+
+## 🖥️ Desktop & Mobile Apps
+
+### Windows Desktop App (.exe)
+Get a native Windows application that runs the dashboard automatically!
+
+```bash
+# Build the executable
+pip install pyinstaller flask ecdsa
+python build_windows.py
+
+# Run: Double-click dist/GlobexWallet.exe
+```
+
+**Features:**
+- ✅ One-click installation
+- ✅ No Python required for end users
+- ✅ Auto-launches in browser
+- ✅ Standalone ~30MB executable
+
+### Android Mobile App
+Take Globex on the go with our native Android app!
+
+```bash
+# Open android_app/ in Android Studio
+# Build: ./gradlew assembleDebug
+# Install APK on your device
+```
+
+**Features:**
+- 📱 Touch-optimized interface
+- ⛏️ Mobile mining
+- 💸 Send/receive on the go
+- 📊 Real-time stats
+
+📖 **Full documentation:** See [APPS_README.md](APPS_README.md)
 
 ## 🎨 Web Dashboard
 
