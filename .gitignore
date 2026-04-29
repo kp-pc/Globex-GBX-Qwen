@@ -1,1 +1,1 @@
-Nothing needs to be added to .gitignore since only a README.md file was modified and no build artifacts, dependencies, or temporary files were detected in the changes.
+Nothing needs to be added to .gitignore since the changes only include source files (.py) and a markdown file (.md), which are not build artifacts, dependencies, or temporary files.
