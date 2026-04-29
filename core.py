@@ -542,6 +542,11 @@ class Blockchain:
         self.lock = threading.Lock()
         
         self._load_chain()
+        
+        # Create genesis block if chain is empty
+        if not self.chain:
+            self.create_genesis_block()
+        
         self._init_dev_fund()
     
     def _init_db(self) -> sqlite3.Connection:
