@@ -1,5 +1,5 @@
 ```
-# Test wallet files
-test_wallet.json
-test_wallet2.json
+__pycache__/
+*.pyc
+demo.db
 ```
