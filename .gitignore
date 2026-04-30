@@ -1,5 +1,28 @@
 ```
-# Logs
-*.log
-stress_test.log
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Dependencies
+venv/
+.venv/
+.env
+.env.local
+*.env.*
+
+# Build and distribution
+build/
+dist/
+*.egg-info/
+
+# Docker
+.dockerenv
 ```

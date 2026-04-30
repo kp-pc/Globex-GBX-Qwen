@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # Main blockchain node
+  globex-node:
+    build: .
+    container_name: globex-node
+    ports:
+      - "8080:8080"   # Dashboard API
+      - "5000:5000"   # P2P Network
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=INFO
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8080/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - globex-network
+
+  # Secondary node for testing P2P
+  globex-node-2:
+    build: .
+    container_name: globex-node-2
+    ports:
+      - "8081:8080"
+      - "5001:5000"
+    volumes:
+      - ./data2:/app/data
+    environment:
+      - NODE_ENV=production
+      - LOG_LEVEL=INFO
+      - API_PORT=8080
+      - P2P_PORT=5000
+    restart: unless-stopped
+    depends_on:
+      - globex-node
+    networks:
+      - globex-network
+
+  # Test runner (on-demand)
+  globex-tests:
+    build: .
+    container_name: globex-tests
+    profiles:
+      - test
+    command: pytest tests/ -v --cov=. --cov-report=term-missing
+    volumes:
+      - ./tests:/app/tests
+      - ./coverage:/app/coverage
+    networks:
+      - globex-network
+
+networks:
+  globex-network:
+    driver: bridge
+
+volumes:
+  data:
+  data2:
