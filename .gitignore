@@ -1,4 +1,4 @@
-```gitignore
+```
 # Python
 __pycache__/
 *.pyc
@@ -8,12 +8,11 @@ __pycache__/
 # Databases
 *.db
 
-# Logs and temp files
-*.log
-*.tmp
-
-# Environment
+# Environment variables
 .env
 .env.local
 *.env.*
+
+# JSON files (if they contain sensitive data)
+# Note: test_wallet.json was added but may contain sensitive data
 ```
