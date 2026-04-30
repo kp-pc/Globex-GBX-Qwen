@@ -628,6 +628,128 @@ Made with 🌟 by the Globex Team
 
 Our vision is to combine the **uncompromising security of Bitcoin** with the **high-throughput performance of Polygon**.
 
+---
+
+## 🏆 Project Milestones
+
+### ✅ Achieved Milestones
+
+#### Phase 0: Foundation (Q4 2024)
+
+| Milestone | Date Achieved | Description | Impact |
+|-----------|---------------|-------------|--------|
+| 🎯 **Project Inception** | Dec 2024 | Initial concept and architecture design | Project launched |
+| 📁 **Repository Setup** | Dec 2024 | Git repository created with MIT license | Open-source foundation |
+| 🐍 **Core Blockchain Engine** | Dec 2024 | Basic PoW consensus with SHA-256d mining | Functional blockchain |
+| 💾 **JSON-Based Storage** | Dec 2024 | File-based block and transaction storage | Data persistence |
+| 🔑 **Wallet & Key Management** | Dec 2024 | ECDSA key generation and address derivation | User wallet support |
+| 📝 **Transaction System** | Dec 2024 | Send/receive GBX with signature verification | Basic transfers |
+| 🎨 **Web Dashboard v1** | Dec 2024 | Flask-based UI for node management | User-friendly interface |
+| 📖 **Documentation** | Dec 2024 | Comprehensive README with examples | Developer onboarding |
+
+#### Phase 1: Core Features (Q1 2025)
+
+| Milestone | Date Achieved | Description | Impact |
+|-----------|---------------|-------------|--------|
+| ⛏️ **ARM-Optimized Mining** | Jan 2025 | CPU-friendly mining for Raspberry Pi | Mobile/RPi support |
+| 📱 **Android App** | Jan 2025 | Native mobile wallet with mining capability | 3B+ device reach |
+| 🪟 **Windows Executable** | Jan 2025 | Standalone .exe (~30MB) via PyInstaller | Windows accessibility |
+| 🔄 **Difficulty Adjustment** | Jan 2025 | Adaptive difficulty targeting 60s blocks | Network stability |
+| 💼 **Development Fund** | Feb 2025 | 2.1M GBX multi-sig treasury with vesting | Sustainable funding |
+| 🔗 **Finality Checkpoints** | Feb 2025 | Validator-signed checkpoints every 50 blocks | Reorg protection |
+| ⚡ **Hybrid PoW/PoS** | Feb 2025 | Energy-efficient staking alongside mining | Flexibility |
+| 🛡️ **Validator Slashing** | Feb 2025 | 10% stake penalty for malicious behavior | Network security |
+
+#### Phase 2: Scaling & Performance (Q2 2025)
+
+| Milestone | Date Achieved | Description | Impact |
+|-----------|---------------|-------------|--------|
+| 🌐 **P2P Kademlia DHT** | Mar 2025 | Full decentralized peer networking | True decentralization |
+| ⚙️ **Parallel Execution** | Mar 2025 | Multi-threaded transaction processing | 13,900+ TPS achieved |
+| 📊 **Stress Testing** | Apr 2025 | 257,161 TPS peak in sandbox environment | Performance validated |
+| 🎯 **Dynamic Difficulty v2** | Apr 2025 | Bitcoin-style retargeting algorithm | Attack resistance |
+| 📈 **Analytics Dashboard** | Apr 2025 | Real-time charts and network metrics | Transparency |
+| 🧪 **Test Framework** | May 2025 | Unit tests and integration testing suite | Code quality |
+| 📦 **Code Optimization** | May 2025 | Reduced to 3,362 lines of clean code | Maintainability |
+
+#### Phase 3: Ecosystem Growth (Current - Q3 2025)
+
+| Milestone | Status | Description | Expected Impact |
+|-----------|--------|-------------|-----------------|
+| 🌉 **Cross-Chain Bridge** | 🔄 In Progress | Atomic swaps with BTC/ETH | Interoperability |
+| 🤖 **Smart Contract Lite** | 🔄 In Progress | Basic scripting for automation | Programmability |
+| 📱 **iOS Mobile App** | 🔄 In Progress | Native iOS wallet | Apple ecosystem |
+| 🏛️ **DAO Governance Framework** | 📋 Planned | Community-driven upgrades | Decentralized governance |
+| 🎮 **Gaming SDK** | 📋 Planned | In-game currency APIs | Gaming adoption |
+
+---
+
+### 🎯 Future Milestones
+
+#### Phase 4: Enterprise Ready (Q4 2025 - Q1 2026)
+
+| Milestone | Target Date | Description | Success Criteria |
+|-----------|-------------|-------------|------------------|
+| 🔐 **Hardware Wallet Support** | Q4 2025 | Ledger/Trezor integration | Secure cold storage |
+| 🏢 **Enterprise SDK** | Q4 2025 | Business payment integration tools | 10+ enterprise pilots |
+| 📊 **Advanced Analytics** | Q4 2025 | Prometheus + Grafana monitoring | Production observability |
+| 🔒 **Privacy Transactions** | Q1 2026 | Optional zk-SNARKs for confidential tx | Privacy-preserving |
+| 🌐 **EVM Compatibility** | Q1 2026 | Run Ethereum smart contracts | Access to Solidity devs |
+
+#### Phase 5: Mass Adoption (Q2 2026 - Q4 2026)
+
+| Milestone | Target Date | Description | Success Criteria |
+|-----------|-------------|-------------|------------------|
+| ⚡ **Layer 2 ZK-Rollups** | Q2 2026 | Batch processing for 100K+ TPS | 10x scaling achieved |
+| 🌉 **Multi-Chain Bridges** | Q2 2026 | Connect to 5+ major chains | Cross-chain liquidity |
+| 🏛️ **Full DAO Governance** | Q3 2026 | Community treasury & voting | Decentralized control |
+| 📈 **DeFi Protocol Suite** | Q3 2026 | DEX, lending, yield farming | $10M+ TVL |
+| 🎮 **Gaming Partnerships** | Q4 2026 | 5+ integrated games | Active gaming economy |
+
+#### Phase 6: Long-Term Vision (2027+)
+
+| Milestone | Target Date | Description | Success Criteria |
+|-----------|-------------|-------------|------------------|
+| 🌍 **Global Node Network** | 2027 | 1000+ geographically distributed nodes | True global presence |
+| 🔮 **Quantum Resistance** | 2027 | CRYSTALS-Kyber post-quantum crypto | Future-proof security |
+| 🏦 **Institutional Custody** | 2027+ | Regulated custody solutions | Institutional adoption |
+| 🌐 **Central Bank Pilots** | 2027+ | CBDC collaboration opportunities | Government partnerships |
+| 🚀 **Mainnet Launch** | TBD | Full production deployment | Self-sustaining network |
+
+---
+
+### 📊 Milestone Progress Summary
+
+```
+Project Timeline Overview
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Phase 0: Foundation      ████████████████████ 100% ✅ Complete
+Phase 1: Core Features   ████████████████████ 100% ✅ Complete  
+Phase 2: Scaling         ████████████████████ 100% ✅ Complete
+Phase 3: Ecosystem       ████████████░░░░░░░░  60% 🔄 In Progress
+Phase 4: Enterprise      ░░░░░░░░░░░░░░░░░░░░   0% 📋 Planned
+Phase 5: Mass Adoption   ░░░░░░░░░░░░░░░░░░░░   0% 📋 Planned
+Phase 6: Long-Term       ░░░░░░░░░░░░░░░░░░░░   0% 📋 Planned
+
+Overall Progress:        ████████░░░░░░░░░░░░░  40% 🚀 On Track
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### 🎯 Key Performance Indicators (KPIs)
+
+| KPI | Current | Q4 2025 Target | Q4 2026 Target |
+|-----|---------|----------------|----------------|
+| **Network TPS** | 257,161 (sandbox) | 5,000 (mainnet) | 100,000+ (L2) |
+| **Active Nodes** | ~10 (dev) | 100+ | 1,000+ |
+| **Daily Transactions** | Test only | 10,000+ | 1M+ |
+| **Market Cap** | N/A | $10M+ | $100M+ |
+| **Developer Count** | 1-5 | 20+ | 100+ |
+| **GitHub Stars** | Growing | 500+ | 5,000+ |
+| **Mobile Downloads** | Beta | 10,000+ | 100,000+ |
+
+---
+
 ### 🏗 Strategic Architecture Goals
 
 | Goal | Implementation Strategy | Target Metric |
