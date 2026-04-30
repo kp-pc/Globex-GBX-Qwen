@@ -1,30 +1,4 @@
 ```
-# Build artifacts
-android_app/app/build/
-android_app/build/
-build/
-
-# Python compiled files
-*.pyc
 __pycache__/
-*.pyo
-*.pyd
-
-# Dependencies
-venv/
-.venv/
-.env
-.env.local
-
-# Logs and temp files
-*.log
-*.tmp
-
-# Editors
-.vscode/
-.idea/
-
-# OS generated files
-.DS_Store
-Thumbs.db
+*.pyc
 ```
