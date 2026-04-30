@@ -273,16 +273,38 @@ HTML_TEMPLATE = """
     </div>
 
     <script>
+        let isMining = false;
+        
         function mineBlock() {
+            if (isMining) {
+                alert('Already mining! Please wait...');
+                return;
+            }
+            
+            isMining = true;
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = '⛏️ Mining...';
+            
             fetch('/mine', {method: 'POST'})
                 .then(response => response.json())
                 .then(data => {
+                    isMining = false;
+                    btn.disabled = false;
+                    btn.textContent = '⛏️ Mine Block';
+                    
                     if (data.success) {
-                        alert('Block mined successfully!');
+                        alert('Block mined successfully! Reward: ' + data.reward + ' GBX');
                         location.reload();
                     } else {
                         alert('Error: ' + data.error);
                     }
+                })
+                .catch(err => {
+                    isMining = false;
+                    btn.disabled = false;
+                    btn.textContent = '⛏️ Mine Block';
+                    alert('Error mining block: ' + err);
                 });
         }
     </script>
@@ -349,15 +371,20 @@ def dashboard():
 def create_wallet():
     global current_wallet
     
-    wallet = generate_wallet()
-    wallet.save_to_file('dashboard_wallet.json')
-    current_wallet = wallet
-    
-    private_key = bytes_to_hex(wallet.get_private_key())
-    
-    return redirect(url_for('dashboard', 
-                          message=f"Wallet created! Address: {wallet.address}. SAVE YOUR PRIVATE KEY: {private_key}",
-                          message_type='success'))
+    try:
+        wallet = generate_wallet()
+        wallet.save_to_file('dashboard_wallet.json')
+        current_wallet = wallet
+        
+        private_key = bytes_to_hex(wallet.get_private_key())
+        
+        return redirect(url_for('dashboard', 
+                              message=f"Wallet created! Address: {wallet.address}. SAVE YOUR PRIVATE KEY: {private_key}",
+                              message_type='success'))
+    except Exception as e:
+        return redirect(url_for('dashboard', 
+                              message=f"Failed to create wallet: {str(e)}",
+                              message_type='error'))
 
 @app.route('/mine', methods=['POST'])
 def mine():
