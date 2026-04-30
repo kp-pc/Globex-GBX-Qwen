@@ -1,0 +1,8 @@
+{
+  "duration": 30.02526569366455,
+  "total_transactions": 6000,
+  "avg_tps": 218477.6323371929,
+  "max_tps": 257161.4960147149,
+  "total_errors": 0,
+  "failure_points": []
+}
