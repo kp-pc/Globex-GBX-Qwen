@@ -560,61 +560,88 @@ Made with 🌟 by the Globex Team
 
 ---
 
-## 🚀 Future Roadmap
+## 🚀 Future Roadmap & Strategic Architecture
 
-Based on the current architecture and industry trends, here are suggested future updates that could be implemented:
+Our vision is to combine the **uncompromising security of Bitcoin** with the **high-throughput performance of Polygon**.
+
+### 🏗 Strategic Architecture Goals
+
+| Goal | Implementation Strategy | Target Metric |
+| :--- | :--- | :--- |
+| **Bitcoin-Level Security** | Pure PoW base layer with Nakamoto Consensus + ASIC-resistant algo | >51% Decentralization |
+| **Instant Finality** | Hybrid PoS checkpointing every 10s on top of PoW blocks | <2s Finality Time |
+| **Polygon-Level Speed** | Parallel transaction execution engine & State pruning | 2,000+ TPS |
+| **Infinite Scaling** | Native ZK-Rollup support for L2 execution | 100,000+ TPS (L2) |
+| **Lightweight Nodes** | SPV support & Merkle proof verification for mobile | <50MB Sync Size |
+
+Based on this architecture and industry trends, here are suggested future updates:
 
 ### Phase 1: Near-Term Enhancements (Q1-Q2 2025)
 
 | Feature | Description | Priority | Estimated Effort |
 |---------|-------------|----------|------------------|
 | 🔐 **Hardware Wallet Support** | Integration with Ledger/Trezor for enhanced security | High | 2-3 weeks |
-| 🌐 **P2P Network Layer** | Full decentralized node discovery and block propagation | High | 3-4 weeks |
+| 🌐 **P2P Network Layer** | Full decentralized node discovery using Kademlia DHT | Critical | 3-4 weeks |
 | 📊 **Advanced Analytics Dashboard** | Real-time charts, network hashrate graphs, validator performance metrics | Medium | 1-2 weeks |
 | 🤖 **Smart Contract Lite** | Basic scripting language for simple automated transactions | Medium | 4-6 weeks |
 | 📱 **iOS Mobile App** | Native iOS wallet with mining and staking capabilities | High | 3-4 weeks |
-| 🔔 **Push Notifications** | Mobile alerts for transactions, mining rewards, and validator events | Low | 1 week |
+| ⚡ **Dynamic Difficulty Adjustment** | Advanced DAA to stabilize block times against hash rate volatility | Critical | 2 weeks |
 
 ### Phase 2: Mid-Term Development (Q3-Q4 2025)
 
 | Feature | Description | Priority | Estimated Effort |
 |---------|-------------|----------|------------------|
-| ⚡ **Layer 2 Scaling** | Payment channels for instant, low-fee microtransactions | High | 6-8 weeks |
-| 🌉 **Cross-Chain Bridge** | Atomic swaps with Bitcoin, Ethereum, and other major chains | Medium | 8-10 weeks |
+| ⚡ **Layer 2 Scaling** | Payment channels and ZK-Rollups for instant, low-fee microtransactions | Critical | 6-8 weeks |
+| 🌉 **Cross-Chain Bridge** | Atomic swaps with Bitcoin, Ethereum, and other major chains | High | 8-10 weeks |
 | 🏛️ **DAO Governance** | Community-driven protocol upgrades and treasury management | Medium | 4-6 weeks |
 | 🎯 **Mining Pool Protocol** | Collaborative mining with fair reward distribution | High | 3-4 weeks |
-| 📦 **NFT Marketplace** | Native support for non-fungible tokens and digital collectibles | Low | 4-5 weeks |
 | 🔒 **Privacy Features** | Optional zk-SNARKs for confidential transactions | Medium | 6-8 weeks |
+| ⚙️ **Parallel Execution Engine** | Multi-threaded transaction processing for higher throughput | Critical | 6-8 weeks |
 
 ### Phase 3: Long-Term Vision (2026+)
 
 | Feature | Description | Priority | Estimated Effort |
 |---------|-------------|----------|------------------|
 | 🌍 **Global CDN Nodes** | Geographically distributed nodes for ultra-low latency | Medium | Ongoing |
-| 🤖 **AI-Powered Optimization** | Machine learning for dynamic difficulty and fee adjustment | Low | 8-12 weeks |
 | 🏢 **Enterprise SDK** | Business integration tools for payments and supply chain | High | 6-8 weeks |
-| 🌱 **Green Mining Initiative** | Carbon-offset mining rewards and renewable energy incentives | Low | 4-6 weeks |
 | 🎮 **Gaming Integration** | In-game currency APIs and play-to-earn mechanics | Medium | 4-6 weeks |
 | 📈 **DeFi Ecosystem** | Decentralized exchange, lending, and yield farming protocols | High | 12-16 weeks |
+| 🌐 **EVM Compatibility** | Run Ethereum smart contracts natively on GBX | High | 8-10 weeks |
+| 🔮 **Quantum Resistance** | Post-quantum cryptographic signature schemes | Low | 12+ weeks |
 
 ### Suggested Implementation Order
 
-1. **Start with P2P Network** - Essential for true decentralization
-2. **Add Hardware Wallet Support** - Critical for enterprise adoption
-3. **Build Layer 2 Scaling** - Enables mass adoption through lower fees
-4. **Develop Cross-Chain Bridge** - Expands ecosystem interoperability
-5. **Launch DAO Governance** - Empowers community ownership
+1. **P2P Network Layer** - Essential for true decentralization (Bitcoin-level security foundation)
+2. **Dynamic Difficulty Adjustment** - Stabilize network against attacks
+3. **Hardware Wallet Support** - Critical for enterprise adoption and security
+4. **Parallel Execution Engine** - Key to achieving Polygon-level speed
+5. **Layer 2 Scaling (ZK-Rollups)** - Enables mass adoption through lower fees and higher TPS
+6. **Cross-Chain Bridge** - Expands ecosystem interoperability
+7. **DAO Governance** - Empowers community ownership
 
-### Technical Debt & Improvements
+### Technical Debt & Optimization Targets
 
 | Area | Current State | Target State | Priority |
 |------|---------------|--------------|----------|
-| Database | File-based JSON storage | SQLite/PostgreSQL with indexing | High |
-| API Security | Basic authentication | OAuth2 + JWT tokens | High |
-| Testing | Manual testing | 90%+ unit test coverage | Medium |
-| Documentation | Good README | Complete API docs + tutorials | Medium |
-| Performance | Single-threaded validation | Parallel verification | Medium |
-| Monitoring | Basic stats | Prometheus + Grafana dashboards | Low |
+| **Consensus** | Basic PoW | Hybrid PoW/PoS with Finality Gadget | 🔴 Critical |
+| **Networking** | Simple TCP | Libp2p + DHT + Encryption | 🔴 Critical |
+| **Database** | File-based JSON | LevelDB/RocksDB with State Pruning | 🟡 High |
+| **VM** | Single-threaded Interpreter | Parallelized Wasm/EVM | 🟡 High |
+| **API Security** | Basic authentication | OAuth2 + JWT tokens + Rate Limiting | 🟡 High |
+| **Testing** | Manual testing | 90%+ unit test coverage + CI/CD | 🟢 Medium |
+| **Monitoring** | Basic stats | Prometheus + Grafana dashboards | 🟢 Medium |
+| **Documentation** | Good README | Complete API docs + tutorials + Video guides | 🟢 Medium |
+
+### Key Metrics to Track Progress
+
+| Metric | Current | Target (Bitcoin Standard) | Target (Polygon Speed) |
+|--------|---------|---------------------------|------------------------|
+| **Decentralization (Nakamoto Coefficient)** | ~5 | >20 | N/A |
+| **Transaction Finality** | ~60s | ~600s (10 blocks) | <2s |
+| **Throughput (TPS)** | ~15 | ~7 TPS | 2,000+ TPS |
+| **Block Time** | 60s | 600s | 2s |
+| **Node Storage Requirement** | Growing | ~500GB (full) | <50GB (pruned) |
+| **Energy Efficiency** | Moderate | High (PoW) | Very High (PoS/L2) |
 
 ### Community Contributions Welcome!
 
