@@ -1,1 +1,9 @@
-Nothing needs to be added to .gitignore since the only change is a modification to a Python test file (`tests/test_globex.py`), which is a source code file that should be tracked in version control. There are no build artifacts, dependencies, temporary files, or other items that need to be ignored in the provided changes.
+```
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+```
