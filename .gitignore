@@ -5,6 +5,10 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Testing
-.pytest_cache/
+# Databases
+*.db
+
+# Wallet files (if they contain sensitive data)
+recipient_wallet.json
+test_wallet.json
 ```
