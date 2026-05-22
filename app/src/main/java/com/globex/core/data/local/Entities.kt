@@ -53,7 +53,8 @@ data class BlockEntity(
     val size: Int = 0,
     val confirmations: Int = 0,
     val validator: String? = null,
-    val stakeAmount: Long? = null
+    val stakeAmount: Long? = null,
+    val transactionCount: Int = 0
 )
 
 /**

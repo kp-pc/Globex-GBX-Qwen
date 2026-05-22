@@ -74,6 +74,16 @@ object DatabaseModule {
     fun provideFundDao(database: AppDatabase): FundDao {
         return database.fundDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideDashboardRepository(
+        api: GlobexApi,
+        walletDao: WalletDao,
+        blockDao: BlockDao
+    ): com.globex.feature_dashboard.domain.repository.DashboardRepository {
+        return com.globex.feature_dashboard.data.repository.DashboardRepositoryImpl(api, walletDao, blockDao)
+    }
 }
 
 /**

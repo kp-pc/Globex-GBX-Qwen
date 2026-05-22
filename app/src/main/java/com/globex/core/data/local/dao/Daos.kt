@@ -30,6 +30,9 @@ interface WalletDao {
     
     @Query("SELECT COUNT(*) FROM wallets")
     fun getCount(): Flow<Int>
+
+    @Query("SELECT * FROM wallets WHERE isActive = 1 LIMIT 1")
+    suspend fun getActiveWallet(): WalletEntity?
 }
 
 /**
@@ -110,6 +113,12 @@ interface BlockDao {
     
     @Query("SELECT MAX(height) FROM blocks")
     fun getMaxHeight(): Flow<Long?>
+
+    @Query("SELECT * FROM blocks ORDER BY height DESC LIMIT :limit")
+    suspend fun getLatestBlocks(limit: Int = 10): List<BlockEntity>
+
+    @Query("SELECT * FROM blocks ORDER BY height DESC")
+    suspend fun getAllBlocks(): List<BlockEntity>
 }
 
 /**
