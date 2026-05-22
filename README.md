@@ -777,3 +777,150 @@ We're looking for contributors in these areas:
 - 🔬 Research on consensus mechanisms and cryptography
 
 Join us in building the future of Globex! 🚀
+
+---
+
+## 📱 Android App - Retrofit APIs & Repository
+
+### Architecture Overview
+
+The Android app uses modern **Repository Pattern** with **Retrofit** for type-safe API communication:
+
+```
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│   UI Layer      │────▶│  Repository      │────▶│   API Layer     │
+│  (Activity)     │     │  (GlobexRepo)    │     │  (Retrofit)     │
+└─────────────────┘     └──────────────────┘     └─────────────────┘
+                               │
+                        ┌──────▼──────┐
+                        │ Local Cache │
+                        │(Encrypted)  │
+                        └─────────────┘
+```
+
+### New Files Added
+
+| File | Lines | Description |
+|------|-------|-------------|
+| `api/GlobexApi.kt` | 317 | Retrofit interface with 25+ API endpoints |
+| `api/RetrofitClient.kt` | 145 | Singleton Retrofit builder with environment configs |
+| `model/Models.kt` | 280 | Data classes for all API responses |
+| `repository/GlobexRepository.kt` | 559 | Repository with caching and encrypted storage |
+| `GlobexApplication.kt` | 45 | Application class for dependency injection |
+| `AndroidManifest.xml` | Updated | Network permissions and deep link support |
+| `build.gradle` | Updated | Added Retrofit, OkHttp, Security Crypto deps |
+| `res/layout/activity_main.xml` | 350+ | Material Design UI with cards and forms |
+| `res/values/colors.xml` | 30 | Globex brand colors |
+| `res/values/themes.xml` | 35 | Material themes with dark mode support |
+| `res/values/strings.xml` | 30 | Localized string resources |
+
+### API Endpoints Covered
+
+#### Wallet Operations
+- `POST /api/create-wallet` - Generate new ECDSA wallet
+- `GET /api/balance/{address}` - Get confirmed/unconfirmed balance
+- `GET /api/utxo/{address}` - Retrieve spendable UTXOs
+
+#### Mining Operations
+- `POST /api/mine` - Mine single block
+- `POST /api/mine/continuous` - Continuous mining
+- `GET /api/mining/stats` - Hash rate and rewards stats
+
+#### Transaction Operations
+- `POST /api/send` - Submit signed transaction
+- `GET /api/transaction/{txid}` - Get transaction details
+- `GET /api/mempool` - List pending transactions
+
+#### Blockchain Operations
+- `GET /api/info` - Chain height, blocks, supply
+- `GET /api/chain` - Full blockchain
+- `GET /api/block/{index}` - Specific block
+- `GET /api/block/latest` - Latest block
+- `POST /api/validate` - Validate entire chain
+
+#### Staking/PoS Operations
+- `POST /api/stake` - Register as validator
+- `GET /api/validator/{address}` - Validator info
+- `GET /api/validators` - All validators list
+
+#### Development Fund
+- `GET /api/devfund/status` - Fund status and proposals
+- `POST /api/devfund/propose` - Create proposal
+- `POST /api/devfund/sign/{id}` - Sign proposal
+
+#### Checkpoints
+- `GET /api/checkpoints` - All finality checkpoints
+- `GET /api/checkpoint/latest` - Latest checkpoint
+
+### Security Features
+
+1. **EncryptedSharedPreferences** - AES-256-GCM encryption for wallet data
+2. **Android Keystore** - Hardware-backed master key generation
+3. **PBKDF2 Key Derivation** - Secure password-based encryption
+4. **Certificate Pinning Ready** - Production HTTPS enforcement
+5. **No Private Key Export** - Keys stay in wallet files
+
+### Usage Example
+
+```kotlin
+// Get API instance
+val api = RetrofitClient.getInstance(context)
+
+// Or use repository for cached operations
+val repository = GlobexRepository(api, context)
+
+// Create wallet
+lifecycleScope.launch {
+    val result = repository.createWallet()
+    result.onSuccess { wallet ->
+        tvAddress.text = wallet.address
+    }
+}
+
+// Mine block
+lifecycleScope.launch {
+    val result = repository.mineBlock(address = "GYourAddress")
+    result.onSuccess { response ->
+        showToast("Mined! Reward: ${response.reward} GBX")
+    }
+}
+
+// Send transaction
+lifecycleScope.launch {
+    val result = repository.sendTransaction(
+        from = "GFrom",
+        to = "GTo",
+        amount = 10.0,
+        fee = 0.01
+    )
+    result.onSuccess { tx ->
+        showToast("TX sent: ${tx.txId}")
+    }
+}
+```
+
+### Testing Results
+
+✅ **All Components Verified**:
+- Retrofit client initialization
+- API interface compilation
+- Model data classes serialization
+- Repository cache logic
+- Encrypted storage setup
+- Material Design UI rendering
+- Network error handling
+
+### Building the App
+
+```bash
+cd android_app
+./gradlew assembleDebug
+# APK: app/build/outputs/apk/debug/app-debug.apk
+```
+
+For production:
+```bash
+./gradlew assembleRelease
+```
+
+---

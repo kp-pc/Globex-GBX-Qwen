@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Globex Brand Colors -->
+    <color name="globex_primary">#4CAF50</color>
+    <color name="globex_primary_dark">#388E3C</color>
+    <color name="globex_primary_light">#81C784</color>
+    <color name="globex_accent">#FFC107</color>
+    
+    <!-- Background Colors -->
+    <color name="globex_background">#FAFAFA</color>
+    <color name="globex_surface">#FFFFFF</color>
+    
+    <!-- Text Colors -->
+    <color name="globex_text_primary">#212121</color>
+    <color name="globex_text_secondary">#757575</color>
+    <color name="globex_text_hint">#BDBDBD</color>
+    
+    <!-- Status Colors -->
+    <color name="globex_success">#4CAF50</color>
+    <color name="globex_warning">#FF9800</color>
+    <color name="globex_error">#F44336</color>
+    <color name="globex_info">#2196F3</color>
+    
+    <!-- Card Colors -->
+    <color name="globex_card_background">#FFFFFF</color>
+    <color name="globex_card_stroke">#E0E0E0</color>
+</resources>

@@ -1,36 +1,43 @@
 ```
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Android build outputs
+*.apk
+*.aar
+*.jar
+*.so
 
-# Environment
+# Android build directories
+build/
+.externalNativeBuild/
+.gradle/
+
+# Android Studio files
+.idea/
+*.iml
+*.iws
+*.db-shm
+*.db-wal
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log Files
+*.log
+
+# Android coverage reports
+coverage/
+
+# Built application files
+bin/
+
+# Unit test results
+test-results/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Environment variables
 .env
 .env.local
 *.env.*
-
-# Logs
-*.log
-
-# Coverage
-.coverage
-coverage/
-htmlcov/
-
-# Dependencies
-.venv/
-venv/
-pip-log.txt
-pip-selfcheck.json
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
 ```
