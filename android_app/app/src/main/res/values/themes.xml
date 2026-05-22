@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.GlobexWallet" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">#3498DB</item>
-        <item name="colorPrimaryVariant">#2980B9</item>
+<resources>
+    <!-- Base application theme -->
+    <style name="Theme.GlobexWallet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">@color/globex_primary</item>
+        <item name="colorPrimaryVariant">@color/globex_primary_dark</item>
         <item name="colorOnPrimary">@android:color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">#F39C12</item>
-        <item name="colorSecondaryVariant">#D68910</item>
-        <item name="colorOnSecondary">@android:color/white</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">@color/globex_accent</item>
+        <item name="colorSecondaryVariant">@color/globex_accent</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+        
+        <!-- Status bar color -->
+        <item name="android:statusBarColor">@color/globex_primary_dark</item>
+        
+        <!-- Background color -->
+        <item name="android:windowBackground">@color/globex_background</item>
+    </style>
+    
+    <!-- Button styles -->
+    <style name="Theme.GlobexWallet.Button.Primary" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/globex_primary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    <style name="Theme.GlobexWallet.Button.Secondary" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">@color/globex_primary</item>
+        <item name="android:textColor">@color/globex_primary</item>
     </style>
 </resources>

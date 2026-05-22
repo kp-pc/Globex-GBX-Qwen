@@ -1,64 +1,175 @@
-# Globex Android App
+# Globex Android Wallet App
 
-Native Android wallet application for the Globex (GBX) cryptocurrency.
+A native Android wallet application for the Globex (GBX) cryptocurrency, built with Kotlin and modern Android architecture components.
 
-## Features
+## 📱 Features
 
-- 👛 **Wallet Management**: Create and manage GBX wallets
-- ⛏️ **Mobile Mining**: Mine blocks directly from your phone
-- 💸 **Send Transactions**: Transfer GBX to other users
-- ✅ **Chain Validation**: Verify blockchain integrity
-- 📊 **Real-time Stats**: View blockchain height, blocks, and pending transactions
+- **Wallet Management**: Create and manage ECDSA wallets with secure storage
+- **Mining Dashboard**: Mine GBX directly from your mobile device
+- **Transactions**: Send and receive GBX with fee customization
+- **Blockchain Explorer**: View chain height, blocks, and pending transactions
+- **Validation**: Verify blockchain integrity on-device
+- **Staking**: Register as a PoS validator and earn rewards
+- **Development Fund**: View and participate in governance proposals
 
-## Prerequisites
+## 🏗️ Architecture
 
-- Android Studio Arctic Fox (2020.3.1) or newer
-- JDK 11 or higher
-- Android SDK 34
-- Minimum Android version: 7.0 (API 24)
+The app follows the **Repository Pattern** with clean separation of concerns:
 
-## Setup Instructions
-
-### 1. Open in Android Studio
-```bash
-# Open Android Studio
-# File → Open → Select the android_app folder
+```
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│   UI Layer      │────▶│  Repository      │────▶│   API Layer     │
+│  (Activity)     │     │  (GlobexRepo)    │     │  (Retrofit)     │
+└─────────────────┘     └──────────────────┘     └─────────────────┘
+                               │
+                        ┌──────▼──────┐
+                        │ Local Cache │
+                        │(Encrypted)  │
+                        └─────────────┘
 ```
 
-### 2. Sync Gradle
-Android Studio will automatically sync the project. Wait for the sync to complete.
+### Package Structure
 
-### 3. Configure Backend Connection
+```
+com.globex.wallet/
+├── api/
+│   ├── GlobexApi.kt          # Retrofit API interface
+│   └── RetrofitClient.kt     # Singleton Retrofit builder
+├── model/
+│   └── Models.kt             # Data classes for API responses
+├── repository/
+│   └── GlobexRepository.kt   # Data operations & caching
+├── GlobexApplication.kt      # Application class (DI)
+└── MainActivity.kt           # Main UI activity
+```
 
-The app connects to the Globex Python backend. You have two options:
+## 🔧 Dependencies
 
-#### Option A: Run on Emulator with Local Backend
-1. Start the Python dashboard on your computer:
+- **Retrofit 2.9.0** - REST API client
+- **OkHttp 4.12.0** - HTTP client with logging
+- **Gson Converter** - JSON serialization
+- **Kotlin Coroutines** - Async operations
+- **AndroidX Security Crypto** - Encrypted storage
+- **Material Components** - Modern UI components
+
+## 🚀 Setup Instructions
+
+### Prerequisites
+
+1. Android Studio Hedgehog or later
+2. JDK 17+
+3. Android SDK 34 (API level)
+4. Running Globex node (local or remote)
+
+### Installation Steps
+
+1. **Clone the repository**
    ```bash
-   python dashboard.py
+   cd android_app
    ```
-2. The emulator can access your computer's localhost via `10.0.2.2`
-3. The app is already configured to use this address
 
-#### Option B: Run on Physical Device
-1. Make sure your phone and computer are on the same WiFi network
-2. Find your computer's IP address:
-   - Windows: `ipconfig`
-   - Mac/Linux: `ifconfig`
-3. Update `BASE_URL` in `MainActivity.kt`:
+2. **Sync Gradle dependencies**
+   - Open in Android Studio
+   - Let Gradle sync automatically
+
+3. **Configure API endpoint**
+   
+   Edit `api/RetrofitClient.kt`:
    ```kotlin
-   private val BASE_URL = "http://YOUR_IP_ADDRESS:5001"
+   // For Android Emulator (localhost)
+   private var baseUrl: String = "http://10.0.2.2:5001/"
+   
+   // For physical device (replace with your PC IP)
+   private var baseUrl: String = "http://192.168.1.100:5001/"
    ```
-4. Allow port 5001 through your firewall
 
-### 4. Build and Run
+4. **Start the Globex node**
+   ```bash
+   python dashboard.py --port 5001
+   ```
 
-#### Debug Build
+5. **Run the app**
+   - Connect device/emulator
+   - Click Run in Android Studio
+
+## 📡 API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/create-wallet` | POST | Generate new ECDSA wallet |
+| `/api/balance/{address}` | GET | Get balance for address |
+| `/api/mine` | POST | Mine a new block |
+| `/api/send` | POST | Submit transaction |
+| `/api/info` | GET | Get blockchain info |
+| `/api/chain` | GET | Get full blockchain |
+| `/api/validate` | POST | Validate blockchain |
+| `/api/nodes` | GET | List connected nodes |
+| `/api/stake` | POST | Register as validator |
+| `/api/devfund/status` | GET | Development fund status |
+
+## 🔒 Security Features
+
+1. **Encrypted Storage**: Wallet addresses stored using AndroidX Security Crypto (AES-256-GCM)
+2. **Master Key**: Hardware-backed keystore for key generation
+3. **No Private Key Export**: Private keys never leave the wallet file
+4. **HTTPS Support**: Production mode enforces encrypted connections
+5. **Certificate Pinning**: Optional certificate pinning for production
+
+## 🎨 UI Components
+
+- **Material Design 3** components
+- **Responsive layouts** for phones and tablets
+- **Dark mode** support (auto-switching)
+- **Loading states** with progress indicators
+- **Toast notifications** for user feedback
+- **Card-based** information display
+
+## 🧪 Testing
+
+### Unit Tests
 ```bash
-./gradlew assembleDebug
+./gradlew test
 ```
 
-#### Release Build (APK)
+### Instrumented Tests
+```bash
+./gradlew connectedAndroidTest
+```
+
+### Manual Testing Checklist
+
+- [ ] Create wallet successfully
+- [ ] View wallet address and balance
+- [ ] Mine a block and see reward
+- [ ] Send transaction to another address
+- [ ] Validate blockchain integrity
+- [ ] Refresh blockchain info
+- [ ] Handle network errors gracefully
+
+## 🌐 Network Configuration
+
+### Development (Emulator)
+```kotlin
+baseUrl = "http://10.0.2.2:5001/"
+```
+
+### Development (Physical Device)
+```kotlin
+baseUrl = "http://192.168.1.XXX:5001/"
+```
+
+### Production
+```kotlin
+baseUrl = "https://api.globex.network/"
+```
+
+### Testnet
+```kotlin
+baseUrl = "https://testnet.globex.network/"
+```
+
+## 📦 Building Release APK
+
 ```bash
 ./gradlew assembleRelease
 ```
@@ -66,102 +177,33 @@ The app connects to the Globex Python backend. You have two options:
 The APK will be generated at:
 `app/build/outputs/apk/release/app-release.apk`
 
-## Project Structure
+## 🐛 Troubleshooting
 
-```
-android_app/
-├── app/
-│   ├── src/main/
-│   │   ├── java/com/globex/wallet/
-│   │   │   └── MainActivity.kt          # Main app logic
-│   │   ├── res/
-│   │   │   ├── layout/
-│   │   │   │   └── activity_main.xml    # UI layout
-│   │   │   └── values/
-│   │   │       ├── strings.xml          # String resources
-│   │   │       └── themes.xml           # App theme
-│   │   └── AndroidManifest.xml          # App configuration
-│   ├── build.gradle                     # App dependencies
-│   └── proguard-rules.pro               # ProGuard config
-├── build.gradle                         # Project config
-└── settings.gradle                      # Gradle settings
-```
+### Connection Refused
+- Ensure Globex node is running
+- Check firewall settings
+- Verify correct IP address for your setup
 
-## Dependencies
+### Cleartext Traffic Error
+- Add `android:usesCleartextTraffic="true"` to manifest (dev only)
+- Use HTTPS for production
 
-- **Retrofit 2**: HTTP client for API calls
-- **OkHttp 3**: Network layer
-- **Gson**: JSON parsing
-- **Material Design**: Modern UI components
-- **Kotlin Coroutines**: Async operations
-- **ViewBinding**: Type-safe view access
+### Wallet Not Saving
+- Check storage permissions
+- Verify Android Keystore is available
 
-## Key Features Explained
+## 📄 License
 
-### Wallet Creation
-Tap "Create New Wallet" to generate a new GBX address and private key. The address is displayed on screen.
+MIT License - See main project LICENSE file
 
-### Mining
-Tap "Mine Block" to solve a proof-of-work puzzle and earn 50 GBX reward. Mining difficulty adjusts based on the blockchain.
+## 🤝 Contributing
 
-### Sending Transactions
-1. Enter recipient's GBX address
-2. Enter amount to send
-3. Tap "Send Transaction"
-4. Transaction is broadcast to the network
+1. Fork the repository
+2. Create feature branch
+3. Make changes
+4. Test thoroughly
+5. Submit pull request
 
-### Chain Validation
-Tap "Validate" to verify the entire blockchain's integrity. Checks all block hashes and proof-of-work.
+---
 
-## Troubleshooting
-
-### Cannot Connect to Backend
-- Ensure `dashboard.py` is running
-- Check that port 5001 is not blocked by firewall
-- Verify IP address is correct (use `10.0.2.2` for emulator)
-- Try restarting both the app and backend
-
-### Build Errors
-- Clean project: `Build → Clean Project`
-- Rebuild: `Build → Rebuild Project`
-- Invalidate caches: `File → Invalidate Caches / Restart`
-
-### App Crashes on Launch
-- Check LogCat for error messages
-- Ensure minimum SDK is 24 or higher
-- Verify all dependencies are synced
-
-## Building APK for Distribution
-
-1. Generate a keystore (first time only):
-   ```bash
-   keytool -genkey -v -keystore globex-wallet.keystore -alias globex -keyalg RSA -keysize 2048 -validity 10000
-   ```
-
-2. Create `keystore.properties` in project root:
-   ```properties
-   storePassword=your_password
-   keyPassword=your_password
-   keyAlias=globex
-   storeFile=/path/to/globex-wallet.keystore
-   ```
-
-3. Build signed APK:
-   ```bash
-   ./gradlew assembleRelease
-   ```
-
-## Future Enhancements
-
-- [ ] Biometric authentication
-- [ ] QR code scanner for addresses
-- [ ] Transaction history list
-- [ ] Push notifications for received payments
-- [ ] Dark mode support
-- [ ] Multiple wallet support
-- [ ] Staking interface
-- [ ] Price chart integration
-
-## License
-
-MIT License - See main project LICENSE file.
+**Built with ❤️ for the Globex Community**

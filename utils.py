@@ -72,6 +72,15 @@ def hash_to_address(pubkey_hash: bytes) -> str:
     return base58_encode(payload + checksum)
 
 
+def address_from_public_key(public_key: bytes) -> str:
+    """Derive a Globex address from a public key.
+    
+    Process: SHA-256 → RIPEMD-160 → Version Byte → Checksum → Base58
+    """
+    pubkey_hash = ripemd160(sha256(public_key))
+    return hash_to_address(pubkey_hash)
+
+
 def verify_address(address: str) -> bool:
     """Verify a Globex address format and checksum."""
     try:

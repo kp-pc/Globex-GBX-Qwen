@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Globex Wallet</string>
+    <string name="create_wallet">Create Wallet</string>
+    <string name="mine_block">Mine Block</string>
+    <string name="send_transaction">Send Transaction</string>
+    <string name="validate_chain">Validate Chain</string>
+    <string name="refresh">Refresh</string>
+    <string name="wallet_address">Wallet Address</string>
+    <string name="balance">Balance</string>
+    <string name="recipient_address">Recipient Address</string>
+    <string name="amount">Amount (GBX)</string>
+    <string name="chain_height">Chain Height</string>
+    <string name="total_blocks">Total Blocks</string>
+    <string name="pending_tx">Pending Transactions</string>
+    <string name="mining">Mining</string>
+    <string name="transactions">Transactions</string>
+    <string name="blockchain">Blockchain</string>
+    <string name="settings">Settings</string>
+    <string name="network_status">Network Status</string>
+    <string name="connected_nodes">Connected Nodes</string>
+    <string name="hash_rate">Hash Rate</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="total_supply">Total Supply</string>
+    <string name="staking">Staking</string>
+    <string name="validators">Validators</string>
+    <string name="dev_fund">Development Fund</string>
+    <string name="checkpoints">Checkpoints</string>
 </resources>
