@@ -5,10 +5,34 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Databases
-*.db
+# Dependencies
+.venv/
+venv/
+env/
+.env
+.env.local
+.env.*
 
-# Wallet files (if they contain sensitive data)
-recipient_wallet.json
-test_wallet.json
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Coverage
+.coverage
+coverage/
+htmlcov/
+
+# Testing
+.pytest_cache/
+.mypy_cache/
 ```
