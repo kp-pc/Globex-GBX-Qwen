@@ -16,7 +16,8 @@ from ecdsa.util import sigencode_der, sigdecode_der
 
 from utils import (
     sha256, ripemd160, hash_to_address, verify_address,
-    double_sha256, bytes_to_hex, hex_to_bytes, base58_encode, base58_decode
+    double_sha256, bytes_to_hex, hex_to_bytes, base58_encode, base58_decode,
+    address_from_public_key
 )
 # Config imports removed - not needed for wallet module to avoid circular dependencies
 
