@@ -128,8 +128,8 @@ class MainActivity : AppCompatActivity() {
                     val success = result.getBoolean("success")
                     if (success) {
                         Toast.makeText(this@MainActivity, "Transaction sent!", Toast.LENGTH_SHORT).show()
-                        binding.etRecipient.text.clear()
-                        binding.etAmount.text.clear()
+                        binding.etRecipient.setText("")
+                        binding.etAmount.setText("")
                         loadBlockchainInfo()
                     } else {
                         Toast.makeText(this@MainActivity, "Transaction failed", Toast.LENGTH_SHORT).show()
