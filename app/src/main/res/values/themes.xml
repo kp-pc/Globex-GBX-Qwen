@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Globex" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="android:colorPrimary">@color/globex_primary</item>
+        <item name="android:colorPrimaryVariant">@color/globex_primary_variant</item>
+        <item name="android:colorOnPrimary">@color/globex_on_primary</item>
+        <!-- Secondary brand color. -->
+        <item name="android:colorSecondary">@color/globex_secondary</item>
+        <item name="android:colorOnSecondary">@color/globex_on_secondary</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">@color/globex_primary_variant</item>
+        <!-- Background color -->
+        <item name="android:colorBackground">@color/globex_background</item>
+    </style>
+</resources>

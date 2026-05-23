@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Exclude sensitive data from backup -->
+        <exclude domain="sharedpref" path="wallet_prefs.xml"/>
+        <exclude domain="database" path="globex.db"/>
+    </cloud-backup>
+    <device-transfer>
+        <!-- Allow device transfer but exclude sensitive data -->
+        <exclude domain="sharedpref" path="wallet_prefs.xml"/>
+        <exclude domain="database" path="globex.db"/>
+    </device-transfer>
+</data-extraction-rules>

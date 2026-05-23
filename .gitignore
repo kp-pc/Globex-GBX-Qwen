@@ -1,4 +1,40 @@
 ```
-# Spec files
-*.spec
+# Compiled and build artifacts
+*.class
+*.o
+*.obj
+*.out
+*.so
+*.a
+*.dll
+*.exe
+build/
+dist/
+
+# Dependencies
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+.coverage
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
 ```
