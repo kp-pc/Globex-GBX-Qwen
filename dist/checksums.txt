@@ -1,0 +1,2 @@
+8b03f0d2cfb600fd145e2256942fd1a1e4e0b38f3db936dc1d7e9833448e9a35  android-build-instructions.txt
+713c5c044ac9e1245c8d5bcce23f0fa52d26b379a1be6d993764a103cef946ec  globex-linux-x86_64.tar.gz

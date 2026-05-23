@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Globex
+Comment=Globex Blockchain Platform
+Exec=globex-wrapper
+Icon=globex
+Categories=Network;P2P;
+Terminal=true

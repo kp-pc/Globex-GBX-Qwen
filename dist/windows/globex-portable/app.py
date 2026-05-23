@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""
+Flask application entrypoint for Globex Dashboard
+"""
+
+from dashboard import app
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
