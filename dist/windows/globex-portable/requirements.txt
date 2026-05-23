@@ -1,0 +1,27 @@
+# Core Dependencies
+flask==3.0.0
+ecdsa==0.18.0
+
+# P2P Networking
+asyncio-throttle==1.0.2
+
+# Database (for future LevelDB migration)
+# leveldb==0.201  # Uncomment when ready to migrate from JSON
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+pytest-asyncio==0.21.1
+
+# Performance & Profiling
+psutil==5.9.6
+
+# Cryptography (for quantum resistance features)
+# cryptography==41.0.7  # Future use for CRYSTALS-Kyber
+
+# Utilities
+requests==2.31.0
+python-dotenv==1.0.0
+
+# Dashboard Visualization
+# plotly==5.18.0  # Optional for advanced charts

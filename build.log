@@ -1,0 +1,50 @@
+==========================================
+GLOBEX MULTI-PLATFORM BUILD SYSTEM
+==========================================
+
+Checking prerequisites...
+[0;32m[✓][0m Python 3 found: Python 3.12.10
+[0;32m[✓][0m Java found: openjdk version "17.0.16" 2025-07-15
+[0;32m[✓][0m Gradle found
+
+Starting build process...
+
+
+==========================================
+BUILDING LINUX INSTALLER (AppImage)
+==========================================
+Creating placeholder icon...
+Icon creation skipped
+Downloading appimagetool...
+[1;33m[!][0m AppImage creation failed, creating tarball instead
+[0;32m[✓][0m Linux tarball created: dist/globex-linux-x86_64.tar.gz
+
+==========================================
+BUILDING WINDOWS INSTALLER (NSIS/Setup)
+==========================================
+[0;32m[✓][0m Creating Windows executable with PyInstaller...
+[1;33m[!][0m PyInstaller build failed
+[0;32m[✓][0m Windows portable created: dist/globex-windows-portable.zip
+
+==========================================
+BUILDING ANDROID APK
+==========================================
+[1;33m[!][0m Gradle not found, attempting to use gradlew wrapper
+[0;32m[✓][0m Building Android debug APK...
+./build_all.sh: line 315: ./gradlew: No such file or directory
+
+==========================================
+GENERATING CHECKSUMS
+==========================================
+
+==========================================
+BUILD COMPLETE
+==========================================
+
+Distribution files:
+total 8.0K
+drwxr-xr-x 2 root root 4.0K May 23 03:48 android
+drwxr-xr-x 5 root root 4.0K May 23 03:47 windows
+
+Download links will be available after pushing to GitHub.
+

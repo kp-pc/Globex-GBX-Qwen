@@ -16,3 +16,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "GlobexWallet"
 include ':app'
+include ':feature_wallet'
+include ':feature_mining'
+include ':feature_nodes'
+include ':feature_explorer'
+include ':feature_staking'
+include ':feature_validator'
+include ':feature_fund'
+include ':feature_settings'

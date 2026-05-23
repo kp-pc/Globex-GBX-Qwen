@@ -1,0 +1,3 @@
+To build Android APK manually:
+1. Install Android Studio or Gradle
+2. Run: cd android_app && gradle assembleDebug

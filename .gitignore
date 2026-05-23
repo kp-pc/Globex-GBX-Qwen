@@ -1,10 +1,4 @@
 ```
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-
-# Testing
-.pytest_cache/
+# Spec files
+*.spec
 ```
